@@ -130,8 +130,22 @@ def game(player1, player2):
 
 # AI 用のインターフェース
   
-def my_AI(board, color): #おチビちゃんAI
-  for position in range(N*N):
-    if put_and_reverse(board, position, color):
-      return position
+def A_I(board,color):
+  x = [35, 0, 5, 30, 2,33,23,12,17,18,3,32, 27, 19, 16, 8, 22, 13, 9, 26, 28, 7, 10, 25, 29, 6, 4, 31, 24, 1, 11, 34,14,15,20,21 ]
+      
+#重り 4 : 35, 0, 5, 30     順番は適当
+#重り 3 : 2,33,23,12,17,18,3,32
+#重り 2 : 27, 19, 16, 8, 22, 13, 9, 26
+#重り 1 : 28, 7, 10, 25, 29, 6, 4, 31, 24, 1, 11, 34
+  
+  for i in range(N*N):
+    if put_and_reverse(board, x[i], color):
+      return x[i]
   return 0
+
+#4	1	3	3	1	4
+#1	1	2	2	1	1
+#3	2			2	3
+#3	2			2	3
+#1	1	2	2	1	1
+#4	1	3	3	1	4
