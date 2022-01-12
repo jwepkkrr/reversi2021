@@ -15,21 +15,21 @@ STONE = ['□', '●', '○']  #石の文字
 #
 
 def xy(p):    # 1次元から2次元へ
-  return p % N, p // N
+  return p % N, p // N  #35の座標の出力(5,5)
 
 
 def p(x, y):    # 2次元から1次元へ
-  return x + y * N
+  return x + y * N      #35を出力
 
 # リバーシの初期画面を生成する
 
 def init_board():
   board = [EMPTY] * (N*N)
-  c = N//2
-  board[p(c, c)] = BLACK
-  board[p(c-1, c-1)] = BLACK
-  board[p(c, c-1)] = WHITE
-  board[p(c-1, c)] = WHITE
+  c = N//2                  #3
+  board[p(c, c)] = BLACK      #p(3,3)
+  board[p(c-1, c-1)] = BLACK  #p(2,2)
+  board[p(c, c-1)] = WHITE    #p(3,2)
+  board[p(c-1, c)] = WHITE    #p(2,3)
   return board
 
 # リバーシの画面を表示する
@@ -40,11 +40,11 @@ def show_board(board):
     for x in range(N):
       stone = board[p(x, y)]
       counts[stone] += 1
-      print(STONE[stone], end='')
+      print(STONE[stone], end='')   #表の表示
     print()
   print()
   for pair in zip(STONE, counts):
-    print(pair, end=' ')
+    print(pair, end=' ') #記号と石の数を表示
   print()
 
 
@@ -86,7 +86,7 @@ def put_and_reverse(board, position, color):
   	return False
   board[position] = color
 
-  x, y = xy(position)
+  x, y = xy(position)     #xy(position)　1次元を2次元にする。
   turned = False
   for dx, dy in DIR:
     nx = x + dx
@@ -129,7 +129,8 @@ def game(player1, player2):
 	show_board(board)  # 最後の結果を表示!
 
 # AI 用のインターフェース
-  
+
+
 def A_I(board,color):
   x = [35, 0, 5, 30, 2,33,23,12,17,18,3,32, 27, 19, 16, 8, 22, 13, 9, 26, 28, 7, 10, 25, 29, 6, 4, 31, 24, 1, 11, 34,14,15,20,21 ]
       
